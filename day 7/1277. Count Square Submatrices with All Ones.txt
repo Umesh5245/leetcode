@@ -1,0 +1,56 @@
+class Solution {
+public:
+    int countSquares(vector<vector<int>>& matrix) {
+        
+    int count=0;
+    
+    for(int r=0;r<matrix.size();r++)
+    {
+        
+        for(int c=0;c<matrix[0].size();c++)
+        {
+            
+            if(matrix[r][c]==0)continue;
+            
+            
+            count++; 
+            int row=r+1;
+            int col=c+1;
+            
+           
+            
+            while(true)
+            {   
+                 if(row==matrix.size()||col==matrix[0].size())break;
+                
+                int i,j;
+                
+                for( i=c;i<=col;i++) 
+                {
+                    if(matrix[row][i]==0)break;
+                }
+                
+                for( j=r;j<=row;j++)
+                {
+                    if(matrix[j][col]==0)break;
+                }
+                
+                
+                
+                if(j!=row+1||i!=col+1)break;
+                
+                count++;
+                row++;
+                col++; 
+                
+            }
+            
+            
+            
+        }
+    }
+    
+    return count;
+    
+}
+};
